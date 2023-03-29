@@ -11,7 +11,7 @@
     </div>   
     <div class="container">
       <h2> Grade Portal </h2>
-      <form method="post" th:object="${newGrade}" th:action="@{http://localhost:8080/handleSubmit}">
+      <form method="post" th:object="${grade}" th:action="@{http://localhost:8080/handleSubmit}">
         <input type="text" placeholder="Name" th:field="*{name}">
         <input type="text" placeholder="Score" th:field="*{score}">  
         <input type="text" placeholder="Subject" th:field="*{subject}">

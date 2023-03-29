@@ -5,9 +5,12 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import jakarta.validation.Valid;
 
 @Controller
 public class GradeController {
@@ -18,7 +21,6 @@ public class GradeController {
     model.addAttribute("grades", studentGrades);
     return "grades";
   }
-  // ------------------------- Form -------------------------
 
   @GetMapping("/")
   public String setForm(Model model, @RequestParam(required = false) String id) {
@@ -31,13 +33,29 @@ public class GradeController {
       grade = new Grade();
     }
 
-    model.addAttribute("newGrade", grade);
+    // [IMPORTANT] The model instance name must be same name in "grade": grades
+    // because in "handleSubmit", it return "grade" not an "newGrade"
+    model.addAttribute("grade", grade);
     
     return "form";
   }
 
+  // [Step2] enter in bad values
+  // [Step3] add @Valid to validate the input.
   @PostMapping("/handleSubmit")
-  public String submitGrade(Grade grade) { 
+  public String submitGrade(@Valid Grade grade, BindingResult result) {
+    // [Stet4] A `BindingResult` carries the result of the validation.
+    //         `BindingResult` must come after the object that need to be validated.
+    System.out.println("Has Error?: " + result.hasErrors());
+    // debugger
+    // [Step 5]
+    // A negative `BindingResult` forces the user to stay in the form.
+    // Stay in the form view
+    if (result.hasErrors()) return "form";
+    
+    // System.out.println(grade.getName());
+    // System.out.println(grade.getSubject());
+
     int index = getGradeIndex(grade.getId());
 
     if (index != Constants.NOT_FOUND) { 

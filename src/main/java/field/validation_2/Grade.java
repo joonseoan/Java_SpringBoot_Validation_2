@@ -2,9 +2,22 @@ package field.validation_2;
 
 import java.util.UUID;
 
+import jakarta.validation.constraints.NotBlank;
+
 public class Grade {
+  /**
+   * FYI, @NotEmpty does not consider the fact 
+   * that user may enter a lot of white space
+   * which is not considered empty but is considered blank.
+   */
+
+  // [Step 1]
+  @NotBlank(message = "Name cannot be blank.")
   private String name;
+
+  @NotBlank(message = "Subject cannot be blank")
   private String subject;
+
   private String score;
   private String id;
 

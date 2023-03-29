@@ -1,0 +1,14 @@
+- validation
+  . Annotate the fields that need validation.
+    @Min(18)
+    private Integer age;
+  . Pass in a bad input.
+  . The handler method validates the fields.
+  . A `BindingResult` carries the result of the validation.
+  . A negative `BindingResult` forces the user to stay in the form.
+  . Thymeleaf catches the errors and displays them.
+
+- dependency setup
+  . Google: "spring boot validation dependency"
+  . https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-validation
+  
