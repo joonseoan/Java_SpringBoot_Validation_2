@@ -48,13 +48,18 @@ public class GradeController {
     //         `BindingResult` must come after the object that need to be validated.
     System.out.println("Has Error?: " + result.hasErrors());
     // debugger
+    
     // [Step 5]
     // A negative `BindingResult` forces the user to stay in the form.
     // Stay in the form view
+    // If the validation fails, it delivers grade instance
+    // with each annotation error message in "errors" object.
     if (result.hasErrors()) return "form";
-    
-    // System.out.println(grade.getName());
-    // System.out.println(grade.getSubject());
+
+    // [IMPORTANT]
+    // If we use `redirect`, we will loose the BindingResult.
+    // Also, the previous input value will not be available.
+    // if (result.hasErrors()) return "redirect:/";
 
     int index = getGradeIndex(grade.getId());
 

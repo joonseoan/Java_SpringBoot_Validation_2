@@ -12,9 +12,11 @@ public class Grade {
    */
 
   // [Step 1]
+  // message is displayed when the input is empty.
   @NotBlank(message = "Name cannot be blank.")
   private String name;
 
+  // message is displayed when the input is empty.
   @NotBlank(message = "Subject cannot be blank")
   private String subject;
 
