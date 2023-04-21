@@ -8,6 +8,24 @@
   . A negative `BindingResult` forces the user to stay in the form.
   . Thymeleaf catches the errors and displays them.
 
+- Custom validation
+  . Use `@interface`
+  . Connect the annotation to validation logic.
+
+    1) name of the annotation.
+      // It should be created with java extension.
+      public @interface Score {} 
+
+    2) Target (means that where this annotation is going to be applied)
+       For instance, method, field, class's constructor
+
+      // target for field
+      @Target(ElementType.FIELD)
+      public @interface Score {} 
+
+    3) Retention run time (This annotation should be retained while we are running the application)
+    
+
 - dependency setup
   . Google: "spring boot validation dependency"
   . https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-validation

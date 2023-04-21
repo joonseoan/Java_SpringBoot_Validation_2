@@ -20,6 +20,19 @@ public class Grade {
   @NotBlank(message = "Subject cannot be blank")
   private String subject;
 
+  /**
+   * Custom validation (constraints)
+    
+    1) name of the annotation.
+    2) Target (means that where this annotation is going to be applied)
+        For instance, method, field, class's constructor
+    3) Retention run time (This annotation should be retained while we are running the application)
+
+    FYI, it is still `Annotation` as long as it does not have any logic to validate value @Constraint.
+    Once we connect some validation logic through @Constraint, 
+    we can call it as `Constraint Annotation`.
+   */
+  @Score
   private String score;
   private String id;
 
