@@ -32,7 +32,7 @@ public class Grade {
     Once we connect some validation logic through @Constraint, 
     we can call it as `Constraint Annotation`.
    */
-  @Score
+  @Score(message = "Score must be a letter grade")
   private String score;
   private String id;
 

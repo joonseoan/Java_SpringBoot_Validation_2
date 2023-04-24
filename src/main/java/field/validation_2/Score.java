@@ -6,6 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 import jakarta.validation.Constraint;
+import jakarta.validation.Payload;
 
 // Target for `Field`
 @Target(ElementType.FIELD)
@@ -19,5 +20,16 @@ import jakarta.validation.Constraint;
  */
 @Constraint(validatedBy = ScoreValidator.class)
 public @interface Score {
+
+  // If the user violates the validation (ScoreValidator), 
+  // it automatically generates "Invalid Data"
+  // It can be overridden by "@Score(message = "Score must be a letter grade")" at Grade.java
+  String message() default "Invalid Data";
   
+  // [IMPORTANT!!!]
+  // We must always define the groups and the payload parameter 
+  // if we define "@Constraint()" annotation.
+  // It is the boilerplate.
+  Class<?>[] groups() default {};
+  Class<? extends Payload>[] payload() default {};  
 }

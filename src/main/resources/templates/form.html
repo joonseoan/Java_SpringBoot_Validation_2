@@ -15,7 +15,9 @@
         <input type="text" placeholder="Name" th:field="*{name}">
         <!-- grade.name has the error message defined Grade class -->
         <p style="color:red" th:errors="*{name}"></p>
-        <input type="text" placeholder="Score" th:field="*{score}"> 
+        <input type="text" placeholder="Score" th:field="*{score}">
+        <!-- grade.score has the error message defined Grade class --> 
+        <p style="color:red" th:errors="*{score}"></p>
         <input type="text" placeholder="Subject" th:field="*{subject}">
         <!-- grade.subject has the error message defined Grade class -->
          <p style="color:red" th:errors="*{subject}"></p>

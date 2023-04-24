@@ -42,6 +42,7 @@ public class GradeController {
 
   // [Step2] enter in bad values
   // [Step3] add @Valid to validate the input.
+  // FYI, @Valid and BindingResult controls both API and Custom validations.
   @PostMapping("/handleSubmit")
   public String submitGrade(@Valid Grade grade, BindingResult result) {
     // [Stet4] A `BindingResult` carries the result of the validation.
