@@ -40,6 +40,23 @@ public class GradeController {
     return "form";
   }
 
+  // [Cross Field Validation]
+  // FYI, we can implement cross field validation in `handleSubmit`.
+  // Please refer to webbook_validation_challenge project
+  /**
+    if (grade.getName().equals(grade.getSubject())) {
+      
+      * bindingResult.rejectValue(arg1, arg2, arg3):
+      * - arg1: identifies which field the error is associated with.
+      * - arg2: error code which acts a message key for the messages.properties file
+      *   (or messages_en.properties or messages_fr.properties etc., if these are being used).
+      * - arg3: Error Message
+    
+      // arg is not required to be used here.
+      // result.rejectValue("subject", "","Name and subject should not be same.");
+    }
+   */
+  
   // [Step2] enter in bad values
   // [Step3] add @Valid to validate the input.
   // FYI, @Valid and BindingResult controls both API and Custom validations.
